@@ -38,6 +38,7 @@
             listViewClientes.Size = new Size(672, 403);
             listViewClientes.TabIndex = 0;
             listViewClientes.UseCompatibleStateImageBehavior = false;
+            listViewClientes.SelectedIndexChanged += listViewClientes_SelectedIndexChanged;
             // 
             // Form1
             // 
