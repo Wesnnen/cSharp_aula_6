@@ -1,6 +1,5 @@
 using MySql.Data.MySqlClient;
-
-namespace aula7
+namespace aula7_01
 {
     public partial class Form1 : Form
     {
@@ -77,7 +76,7 @@ namespace aula7
             // Obtem os valores dos TextBoxes
             string nome = textBox1.Text;
             string email = textBox2.Text;
-            //string salario = textBox3.Text;
+            string salario = textBox3.Text;
             string dataCriacao = DateTime.Now.ToString("yyyy-MM-dd");
             string status = "Ativo";
 
@@ -90,7 +89,7 @@ namespace aula7
                 conexao.Open();
 
                 // Query SQL para inserção de dados na tabela 'usuarios'
-                string query = $"INSERT INTO usuario (nome, email, DataCriacao, Status)  VALUES ('{nome}', '{email}', '{dataCriacao}', '{status}');";
+                string query = $"INSERT INTO usuario (nome, email, DataCriacao, Status), usuarioperfil (salario)  VALUES ('{nome}', '{email}', '{dataCriacao}', '{status}')";
 
                 MySqlCommand cmd = new MySqlCommand(query, conexao);
 
@@ -119,13 +118,12 @@ namespace aula7
         private void button3_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
+
+            // Exibe o Form2 como uma nova janela
             form2.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 
 }

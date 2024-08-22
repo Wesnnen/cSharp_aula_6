@@ -37,6 +37,7 @@
             button2 = new Button();
             label3 = new Label();
             textBox3 = new TextBox();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -73,6 +74,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(198, 23);
             textBox1.TabIndex = 3;
+            textBox1.Text = "wwqe";
             // 
             // textBox2
             // 
@@ -98,6 +100,7 @@
             button2.TabIndex = 6;
             button2.Text = "Excluir";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label3
             // 
@@ -115,11 +118,22 @@
             textBox3.Size = new Size(198, 23);
             textBox3.TabIndex = 7;
             // 
+            // button3
+            // 
+            button3.Location = new Point(589, 381);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 9;
+            button3.Text = "Outra tela";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(label3);
             Controls.Add(textBox3);
             Controls.Add(button2);
@@ -147,5 +161,6 @@
         private Button button2;
         private Label label3;
         private TextBox textBox3;
+        private Button button3;
     }
 }

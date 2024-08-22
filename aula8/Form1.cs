@@ -1,6 +1,6 @@
 using MySql.Data.MySqlClient;
 
-namespace aula7
+namespace aula8
 {
     public partial class Form1 : Form
     {
@@ -71,61 +71,34 @@ namespace aula7
                 MessageBox.Show($"Erro ao carregar usuarioss: {ex.Message}");
             }
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            // Obtem os valores dos TextBoxes
-            string nome = textBox1.Text;
-            string email = textBox2.Text;
-            //string salario = textBox3.Text;
-            string dataCriacao = DateTime.Now.ToString("yyyy-MM-dd");
-            string status = "Ativo";
-
-
-            string strConexao = "server=localhost;uid=root;database=bancodedados1";
-            MySqlConnection conexao = new MySqlConnection(strConexao);
-
-            try
-            {
-                conexao.Open();
-
-                // Query SQL para inserção de dados na tabela 'usuarios'
-                string query = $"INSERT INTO usuario (nome, email, DataCriacao, Status)  VALUES ('{nome}', '{email}', '{dataCriacao}', '{status}');";
-
-                MySqlCommand cmd = new MySqlCommand(query, conexao);
-
-                // Executa o comando de inserção
-                int linhasAfetadas = cmd.ExecuteNonQuery();
-
-                if (linhasAfetadas > 0)
-                {
-                    MessageBox.Show("Dados inseridos com sucesso!");
-                    // Após inserção, atualiza a ListView
-                    CarregarClientes();
-                }
-                else
-                {
-                    MessageBox.Show("Falha ao inserir dados.");
-                }
-
-                conexao.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Erro: {ex.Message}");
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
             Form2 form2 = new Form2();
-            form2.Show();
+            form2.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            form4.ShowDialog();
+        }
+
+
+
+        private void button4_Click(object sender, EventArgs e)
+        {
 
         }
-    }
 
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+    }
 }
