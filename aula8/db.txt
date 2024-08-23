@@ -1,0 +1,17 @@
+CREATE TABLE `usuarioperfil` (
+  `PerfilID` int(11) DEFAULT NULL,
+  `salario` varchar(10) DEFAULT NULL,
+  KEY `PerfilID` (`PerfilID`),
+  CONSTRAINT `usuarioperfil_ibfk_1` FOREIGN KEY (`PerfilID`) REFERENCES `usuario` (`UsuarioID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `usuario` (
+  `UsuarioID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(100) NOT NULL,
+  `Idade` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `DataCriacao` date DEFAULT curdate(),
+  `Status` enum('Ativo','Inativo') DEFAULT 'Ativo',
+  PRIMARY KEY (`UsuarioID`),
+  UNIQUE KEY `Email` (`Email`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
