@@ -12,6 +12,7 @@ namespace aula8
             conexao.Open();
         }
 
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -32,6 +33,7 @@ namespace aula8
 
             // Carrega os clientes na ListView
             CarregarClientes();
+
         }
         private void CarregarClientes()
         {
@@ -63,8 +65,11 @@ namespace aula8
                     listViewClientes.Items.Add(item);
                 }
 
+                
+
                 reader.Close();
                 conexao.Close();
+
             }
             catch (Exception ex)
             {
@@ -93,12 +98,21 @@ namespace aula8
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Form5 form5 = new Form5();
+            form5.ShowDialog();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (listViewClientes.SelectedItems.Count > 0)
+            {
+                MessageBox.Show("Código do produto escolhido: " + listViewClientes.SelectedItems[0].Text);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            CarregarClientes();
         }
     }
 }

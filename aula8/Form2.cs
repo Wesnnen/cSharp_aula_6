@@ -21,7 +21,7 @@ namespace aula8
             var conexao = new MySqlConnection(strConexao);
             conexao.Open();
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             string nome = textBox1.Text;
@@ -33,14 +33,14 @@ namespace aula8
 
             string strConexao = "server=localhost;uid=root;database=bancodedados1";
             MySqlConnection conexao = new MySqlConnection(strConexao);
-
+            
             try
             {
                 conexao.Open();
 
                 // Query SQL para inserção de dados na tabela 'usuarios'
 
-
+                
 
 
 
@@ -71,6 +71,8 @@ namespace aula8
                 }
 
                 conexao.Close();
+               
+                    Close();
 
             }
             catch (Exception ex)
@@ -78,7 +80,7 @@ namespace aula8
                 MessageBox.Show($"Erro: {ex.Message}");
             }
 
-
+            
         }
 
         private void Form2_Load(object sender, EventArgs e)
