@@ -20,19 +20,11 @@ namespace aula8
 
         private void Form5_Load(object sender, EventArgs e)
         {
-           
-                listViewClientes.View = View.Details;
-                listViewClientes.Columns.Add("ID", 50, HorizontalAlignment.Left);
-                listViewClientes.Columns.Add("Nome", 150, HorizontalAlignment.Left);
-                listViewClientes.Columns.Add("Email", 200, HorizontalAlignment.Left);
-                listViewClientes.Columns.Add("Data da Criação", 200, HorizontalAlignment.Left);
-                listViewClientes.Columns.Add("Status", 200, HorizontalAlignment.Left);
-                listViewClientes.Columns.Add("Salario", 200, HorizontalAlignment.Left);
-                listViewClientes.FullRowSelect = true; // Ativa a seleção da linha toda
-                listViewClientes.GridLines = true; // Adiciona linhas de grade para melhor visualização
 
-                // Carrega os clientes na ListView
-                
+            clienteHelper.view(listViewClientes);
+            clienteHelper.xx(listViewClientes);
+            // Carrega os clientes na ListView
+
 
         }
         
@@ -47,7 +39,7 @@ namespace aula8
                 conexao.Open();
 
                 // Query SQL para selecionar todos os registros da tabela 'usuario'
-                string query = "Select usuario.nome, usuario.Email,usuario.UsuarioID, usuario.status, usuario.DataCriacao, usuarioperfil.salario\r\nfrom usuario\r\njoin usuarioperfil ON usuario.UsuarioID = usuarioperfil.PerfilID\r\nWhere usuario.nome ='" + x + "'";
+                string query = $"Select usuario.nome, usuario.Email,usuario.UsuarioID, usuario.status, usuario.DataCriacao, usuarioperfil.salario\r\nfrom usuario\r\njoin usuarioperfil ON usuario.UsuarioID = usuarioperfil.PerfilID\r\nWhere usuario.nome LIKE '%{x}%'";
                 MySqlCommand cmd = new MySqlCommand(query, conexao);
                 MySqlDataReader reader = cmd.ExecuteReader();
 
